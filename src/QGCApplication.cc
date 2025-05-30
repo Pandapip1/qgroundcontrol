@@ -366,6 +366,7 @@ void QGCApplication::_initForNormalAppBoot()
     #ifdef Q_OS_LINUX
     #ifndef Q_OS_ANDROID
     #ifndef QGC_NO_SERIAL_LINK
+    #ifndef QGC_DISABLE_ETC_GROUP_CHECKS
         if (!_runningUnitTests) {
             // Determine if we have the correct permissions to access USB serial devices
             QFile permFile("/etc/group");
@@ -386,6 +387,7 @@ void QGCApplication::_initForNormalAppBoot()
                 permFile.close();
             }
         }
+    #endif
     #endif
     #endif
     #endif
